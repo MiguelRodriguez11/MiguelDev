@@ -4,7 +4,11 @@ trigger:
 - main
 
 pool:
+  # Estoy usando mi pool "defaul" porque estoy utilizando un agente autohospedado, porque la version gratuita no cuenta con agentes hospedados gratis
   name: Default
+  
+  # Para ejecutarlo en un agente hospedado se realizaria con el siguiente comando:
+  # vmImage: 'ubuntu-latest'
 
 steps:
 - task: UseDotNet@2
