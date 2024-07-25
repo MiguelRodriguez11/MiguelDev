@@ -1,5 +1,5 @@
 #!/bin/bash
-. venv/bin/activate
+. .venv/bin/activate
 pip install --upgrade pip
 rm -rf public
 reflex init
