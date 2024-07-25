@@ -2,22 +2,27 @@ import reflex as rx
 import linkBio.constants as const
 from linkBio.components.link_icon import link_icon
 from linkBio.components.info_text import info_text
-from linkBio.styles.styles import Size as Size
+from linkBio.styles.styles import Size, Spacing
 from linkBio.styles.colors import TextColor as TextColor
 from linkBio.styles.colors import Color as Color
 
 def header() -> rx.Component:
         return rx.vstack(
                 rx.hstack(
-                        rx.avatar(
-                                name="MiguelDEV",
-                                size="xl",
-                                fallback="[ ]",
-                                radius="full",
-                                color=TextColor.BODY.value,
-                                bg=Color.CONTENT.value,
-                                padding="1px",
-                                border=f"2px solid {Color.PRRIMARY.value}"
+                        rx.box(
+                                rx.avatar(
+                                        name="miguelDEV",
+                                        size=Spacing.VERY_BIG.value,
+                                        fallback=">_|",
+                                        variant="soft",
+                                        high_contrast=True,
+                                        radius="full",
+                                        color=TextColor.BODY.value,
+                                        bg=Color.CONTENT.value,
+                                        padding="1px",
+                                        border=f"2px solid {Color.PRRIMARY.value}"
+                                ),
+                                position="relative"
                         ),
                         rx.vstack(
                                 rx.heading(

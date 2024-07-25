@@ -2,19 +2,22 @@ import reflex as rx
 import datetime
 import linkBio.constants as const
 from linkBio.styles.styles import Size as Size
-from linkBio.styles.colors import TextColor as TextColor
+from linkBio.styles.colors import Color, TextColor
 
 def footer() -> rx.Component:
     return rx.vstack(
         rx.image(
             src="logoM.png",
-            height=Size.VERY_BIG.value
+            height=Size.VERY_BIG.value,
+            widht=Size.VERY_BIG.value
             ),
         rx.link(
             rx.box(
                 f"© {datetime.date.today().year} ",
                 rx.text(
-                    "MIGUELDEV by Miguel Rodriguez"
+                    "MIGUELDEV by Miguel Rodriguez",
+                    as_="span",
+                    color=Color.PRRIMARY.value
                 ),
                 " v1.",
                 padding_top=Size.DEFAULT.value
@@ -28,7 +31,9 @@ def footer() -> rx.Component:
             margin_top=Size.ZERO.value,
             font_size=Size.MEDIUM.value
         ),
+        align="center",
         margin_bottom=Size.BIG.value,
         padding_bottom=Size.BIG.value,
+        padding_x=Size.BIG.value,
         color=TextColor.FOOTER.value
     )
