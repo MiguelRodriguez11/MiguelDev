@@ -3,7 +3,7 @@ import linkBio.constants as const
 from linkBio.routes import Route
 from linkBio.components.link_button import link_button
 from linkBio.components.title import title
-from linkBio.styles.styles import Size
+from linkBio.styles.styles import Color, Spacing
 
 def index_links() -> rx.Component:
     return rx.vstack(
@@ -12,7 +12,9 @@ def index_links() -> rx.Component:
             "LinkedIn",
             "Mi perfil laboral",
             "/icons/linkedin.svg",
-            const.LINKEDIN_URL
+            const.LINKEDIN_URL,
+            False,
+            Color.SECONDARY.value
         ),
         link_button(
             "GitHub",
