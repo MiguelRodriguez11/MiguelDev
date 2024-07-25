@@ -1,8 +1,8 @@
 import reflex as rx 
 from linkBio.components.navbar import navbar
 from linkBio.components.footer import footer
-from linkBio.views.header.header import header
-from linkBio.views.links.links import links
+from linkBio.views.header import header
+from linkBio.views.links import links
 from linkBio.styles.styles import Size as Size
 
 import linkBio.styles.styles as styles
@@ -33,5 +33,10 @@ app = rx.App(
 app.add_page(
     index,
     title="miguelDEV | Profile page",
-    description="Profile page."
+    description="Profile page.",
+    meta=[
+        {"name": "og:type", "content": "website"},
+        {"name": "og:title", "title": "miguelDEV | Profile page"},
+        {"name": "og:description", "description": "Profile page."}
+    ]
 )
