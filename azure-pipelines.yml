@@ -7,6 +7,12 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
+- task: UseDotNet@2
+  inputs:
+    packageType: 'sdk'
+    version: '5.x'
+    installationPath: $(Agent.ToolsDirectory)/dotnet
+    
 - script: |
     sudo apt-get update
     sudo apt-get install -y python3 python3-pip python3.10-venv unzip
