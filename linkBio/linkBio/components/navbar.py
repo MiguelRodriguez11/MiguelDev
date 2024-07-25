@@ -1,7 +1,9 @@
 import reflex as rx
 import linkBio.styles.styles as styles
+from linkBio.routes import Route
 from linkBio.styles.styles import Size as Size
 from linkBio.styles.colors import Color as Color
+from linkBio.components.ant_components import float_button
 
 def navbar() -> rx.Component:
     return rx.hstack(
@@ -11,7 +13,10 @@ def navbar() -> rx.Component:
                 rx.text("DEV", as_="span", color=Color.SECONDARY.value),
                 style=styles.navbar_title_style
             ),
-            href="http://localhost:3000/"
+            href=Route.INDEX.value
+        ),
+        float_button(
+            icon=rx.image(src="/icons/donate.svg")
         ),
         position="sticky",
         bg=Color.CONTENT.value,

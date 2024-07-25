@@ -6,7 +6,7 @@ from linkBio.styles.styles import Size, Spacing
 from linkBio.styles.colors import TextColor as TextColor
 from linkBio.styles.colors import Color as Color
 
-def header() -> rx.Component:
+def header(details = True) -> rx.Component:
         return rx.vstack(
                 rx.hstack(
                         rx.box(
@@ -35,40 +35,50 @@ def header() -> rx.Component:
                                 ),
                                 rx.hstack(
                                         link_icon(
-                                                "icons/dev.svg",
+                                                "/icons/dev.svg",
                                                 const.DEV_URL
                                         ),
 
                                         link_icon(
-                                                "icons/stackoverflow.svg",
+                                                "/icons/stackoverflow.svg",
                                                 const.STACKOVERFLOW
                                         ),
-                                        spacing="3"
+                                        spacing=Spacing.LARGE.value,
+                                        padding_top=Size.SMALL.value
                                 ),
+                                spacing=Spacing.ZERO.value,
                                 align_items="start"
                         ),
-                        spacing=Size.BIG.value
+                        align="end",
+                        spacing=Spacing.DEFAULT.value
                 ),
-
-                rx.flex(
-                        info_text("+3 ", "años de experiencia"),
-                        rx.spacer(),
-                        info_text("+3 ", "años de experiencia"),
-                        rx.spacer(),
-                        info_text("+3 ", "años de experiencia"),
-                        width="100%"
+                rx.cond(
+                        details,
+                        rx.vstack(
+                                rx.flex(
+                                        info_text("+3 ", "años de experiencia"),
+                                        rx.spacer(),
+                                        info_text("+3 ", "años de experiencia"),
+                                        rx.spacer(),
+                                        info_text("+3 ", "años de experiencia"),
+                                        width="100%"
+                                ),
+                                rx.text(
+                                        f"""
+                                        Soy desarrollador DevOps con experiencia en la utomatización 
+                                        de procesos de desarrollo y despliegue de software. Ayudo a las empresas 
+                                        a acortar sus ciclos de desarrollo, mejorar la calidad del software y reducir 
+                                        los errorres mediante la implementación de practicas DevOps. 
+                                        Aquí podrás encontrar todos mis enlaces de interés. Bienvenid@s!
+                                        """,
+                                        font_size=Size.DEFAULT.value,
+                                        color=TextColor.BODY.value
+                                ),
+                                widht="100%",
+                                spacing=Size.BIG.value
+                        )
                 ),
-                rx.text(
-                        f"""
-                        Soy desarrollador DevOps con experiencia en la utomatización 
-                        de procesos de desarrollo y despliegue de software. Ayudo a las empresas 
-                        a acortar sus ciclos de desarrollo, mejorar la calidad del software y reducir 
-                        los errorres mediante la implementación de practicas DevOps. 
-                        Aquí podrás encontrar todos mis enlaces de interés. Bienvenid@s!
-                        """,
-                        font_size=Size.DEFAULT.value,
-                        color=TextColor.BODY.value
-                ),
-                spacing=Size.BIG.value,
+                width="100%",
+                spacing=Spacing.BIG.value,
                 align_items="start"
         )

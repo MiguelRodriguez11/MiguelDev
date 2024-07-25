@@ -1,7 +1,6 @@
 import reflex as rx
 from enum import Enum
-from .colors import Color as Color
-from .colors import TextColor as TextColor
+from .colors import Color as Color, TextColor
 from .fonts import Font, FontWeight
 
 #Constants
@@ -52,12 +51,14 @@ BASED_STYLES = {
         "background_color": Color.CONTENT.value,
         "white_space": "normal",
         "text_align": "start",
+        "--cursor-button": "pointer",
         "display": "block",
         "_hover": {
             "background_color": Color.SECONDARY.value
         }
     },
     rx.link: {
+        "color": TextColor.BODY.value,
         "text_decoration": "none",
         "_hover": {}
     }
