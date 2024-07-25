@@ -19,7 +19,7 @@ steps:
     
 - script: |
     sudo apt-get update
-    sudo apt-get install -y python3 python3-pip python3.10-venv unzip
+    sudo apt-get install -y python3 python3-pip unzip
     if [ $? -ne 0 ]; then
         echo "Error: Failed to install dependencies"
         exit 1
@@ -32,7 +32,7 @@ steps:
   displayName: 'Installing Dependencies'
 
 - script: |
-    git clone https://github.com/MiguelRodriguez11/MiguelDev.git || { echo "Error: Failed to clone repository"; exit 1; }
+    git clone $(HTTPSRespository) || { echo "Error: Failed to clone repository"; exit 1; }
     cd MiguelDev/linkBio/ || { echo "Error: Failed to change directory to repository"; exit 1; }
     sh ./build.sh || { echo "Error: Build failed"; exit 1; }
   displayName: 'Cloning and building the application'
