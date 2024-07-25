@@ -1,25 +1,44 @@
 import reflex as rx
+import linkBio.constants as const
 from linkBio.components.link_icon import link_icon
 from linkBio.components.info_text import info_text
 from linkBio.styles.styles import Size as Size
+from linkBio.styles.colors import TextColor as TextColor
+from linkBio.styles.colors import Color as Color
 
 def header() -> rx.Component:
         return rx.vstack(
                 rx.hstack(
-                        rx.avatar(fallback="MD", size="xl", color_scheme="orange"),
+                        rx.avatar(
+                                name="MiguelDEV",
+                                size="xl",
+                                fallback="[ ]",
+                                radius="full",
+                                color=TextColor.BODY.value,
+                                bg=Color.CONTENT.value,
+                                padding="1px",
+                                border=f"2px solid {Color.PRRIMARY.value}"
+                        ),
                         rx.vstack(
                                 rx.heading(
-                                        "Hola! mi nombre es Miguel Rodriguez.",
-                                        size="lg"
+                                        "Hola! mi nombre es Miguel Rodriguez."
                                 ),
                                 rx.text(
                                         "@MiguelRodriguez11",
-                                        margin_top="0px !important"
+                                        margin_top=Size.ZERO.value,
+                                        color=TextColor.BODY.value
                                 ),
                                 rx.hstack(
-                                        link_icon("https://github.com/MiguelRodriguez11"),
-                                        link_icon("https://github.com/MiguelRodriguez11"),
-                                        link_icon("https://github.com/MiguelRodriguez11")
+                                        link_icon(
+                                                "icons/dev.svg",
+                                                const.DEV_URL
+                                        ),
+
+                                        link_icon(
+                                                "icons/stackoverflow.svg",
+                                                const.STACKOVERFLOW
+                                        ),
+                                        spacing="3"
                                 ),
                                 align_items="start"
                         ),
@@ -34,11 +53,17 @@ def header() -> rx.Component:
                         info_text("+3 ", "años de experiencia"),
                         width="100%"
                 ),
-                rx.text("""Soy desarrollador DevOps con experiencia en la utomatización 
+                rx.text(
+                        f"""
+                        Soy desarrollador DevOps con experiencia en la utomatización 
                         de procesos de desarrollo y despliegue de software. Ayudo a las empresas 
                         a acortar sus ciclos de desarrollo, mejorar la calidad del software y reducir 
                         los errorres mediante la implementación de practicas DevOps. 
-                        Aquí podrás encontrar todos mis enlaces de interés. Bienvenid@s!"""),
+                        Aquí podrás encontrar todos mis enlaces de interés. Bienvenid@s!
+                        """,
+                        font_size=Size.DEFAULT.value,
+                        color=TextColor.BODY.value
+                ),
                 spacing=Size.BIG.value,
                 align_items="start"
         )

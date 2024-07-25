@@ -19,7 +19,8 @@ def index() -> rx.Component:
                 links(),
                 max_width=styles.MAX_WIDTH,
                 width="100%",
-                margin_y=Size.BIG.value
+                margin_y=Size.BIG.value,
+                padding=Size.LARGE.value
             ),
         ),
         footer()
@@ -28,4 +29,8 @@ def index() -> rx.Component:
 app = rx.App(
     style=styles.BASED_STYLES
 )
-app.add_page(index)
+app.add_page(
+    index,
+    title="MiguelDEV | Profile page",
+    description="Profile page."
+)
