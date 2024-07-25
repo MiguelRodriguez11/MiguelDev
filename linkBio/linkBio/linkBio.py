@@ -27,10 +27,11 @@ def index() -> rx.Component:
     )
 
 app = rx.App(
+    stylesheets=styles.STYLESHEETS,
     style=styles.BASED_STYLES
 )
 app.add_page(
     index,
-    title="MiguelDEV | Profile page",
+    title="miguelDEV | Profile page",
     description="Profile page."
 )
