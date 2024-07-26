@@ -1,3 +1,7 @@
+"""
+Este módulo configura la aplicación linkBio con sus parámetros necesarios,
+incluyendo los orígenes permitidos para CORS.
+"""
 import reflex as rx
 
 config = rx.Config(

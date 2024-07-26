@@ -1,7 +1,7 @@
 import os
+import time
 import dotenv
 import requests
-import time
 
 class TwitchAPI:
 
@@ -35,7 +35,7 @@ class TwitchAPI:
 
     def token_valid(self) -> bool:
         return time.time() < self.token_exp
-    
+
     def live(self) -> bool:
 
         if not self.token_valid():
@@ -52,5 +52,5 @@ class TwitchAPI:
             data = response.json()["data"]
             print(data)
             return True
-        
+
         return False
