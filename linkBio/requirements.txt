@@ -3,3 +3,4 @@ python-dotenv
 supabase
 pytest
 requests
+mailjet_rest
