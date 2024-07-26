@@ -40,3 +40,4 @@ jobs:
     - name: Analysing the code with pylint
       run: |
         pylint linkBio/linkBio/routes.py 
+      #pylint $(git ls-files '*.py') //Ejecutar en todos los archivos de Python
