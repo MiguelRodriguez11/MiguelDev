@@ -39,5 +39,4 @@ jobs:
 
     - name: Analysing the code with pylint
       run: |
-        pwd
-        pylint linkBio/rxconfig.py
+        pylint linkBio/linkBio/routes.py 
