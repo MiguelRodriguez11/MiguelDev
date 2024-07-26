@@ -35,4 +35,5 @@ steps:
     git clone $(HTTPSRespository) || { echo "Error: Failed to clone repository"; exit 1; }
     cd MiguelDev/linkBio/ || { echo "Error: Failed to change directory to repository"; exit 1; }
     sh ./build.sh || { echo "Error: Build failed"; exit 1; }
+    sh ./unittest.sh || { echo "Error: Build failed"; exit 1; }
   displayName: 'Cloning and building the application'
