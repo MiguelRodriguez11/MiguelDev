@@ -3,9 +3,12 @@ import linkBio.constants as const
 from linkBio.routes import Route
 from linkBio.components.link_button import link_button
 from linkBio.components.title import title
+from linkBio.components.featured_link import featured_link
 from linkBio.styles.styles import Color, Spacing
+from linkBio.model.Featured import Featured
+from linkBio.state.PageState import PageState
 
-def index_links(featured=[]) -> rx.Component:
+def index_links(featured: list[Featured]) -> rx.Component:
     return rx.vstack(
         title("Contacto"),
         link_button(
@@ -35,29 +38,21 @@ def index_links(featured=[]) -> rx.Component:
             "/icons/spotify.svg",
             const.SPOTIFY_URL
         ),
-#        rx.cond(
-#            len(featured) > 0,
-#            rx.vstack(
-#                title("Destacado"),
-#                rx.foreach(
-#                    featured,
-#                    lambda item: rx.responsive_grid(
-#                        rx.link(
-#                            rx.image(
-#                            href=item["iamge"],
-#
-#                            ),
-#                            rx.text(
-#                            href=item["title"],
-#
-#                            ),
-#                            href=item["url"],
-#                            is_external=True
-#                        )
-#                    )
-#                )
-#           )
-#        ),
+        rx.cond(
+            PageState.featured_info,
+            rx.vstack(
+                title("Destacado"),
+                rx.flex(
+                    rx.foreach(
+                        PageState.featured_info,
+                        featured_link
+                    ),
+                    flex_direction=["column", "row"],
+                    spacing=Spacing.DEFAULT.value
+                ),
+                spacing=Spacing.DEFAULT.value
+            )
+        ),
         title("Projectos"),
         link_button(
             "Free VPN service",
