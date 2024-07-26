@@ -40,4 +40,4 @@ jobs:
     - name: Analysing the code with pylint
       run: |
         pwd
-        pylint ./rxconfig.py
+        pylint linkBio/rxconfig.py
