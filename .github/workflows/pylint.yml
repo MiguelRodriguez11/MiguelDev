@@ -39,4 +39,5 @@ jobs:
 
     - name: Analysing the code with pylint
       run: |
-        pylint rxconfig.py
+        pwd
+        pylint ./rxconfig.py
