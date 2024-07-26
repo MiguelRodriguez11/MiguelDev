@@ -21,10 +21,10 @@ class SupabaseAPI:
             self.supabase = create_client(self.URL_SUPABASE, self.SUPABASE_KEY)
 
     def featured(self) -> list[Featured]:
-        
+
         if self.supabase is None:
             self.create_client()
-            
+
         response = self.supabase.table("featured").select("*").execute()
 
         featured_data = []
