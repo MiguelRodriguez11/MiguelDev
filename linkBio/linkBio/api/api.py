@@ -1,7 +1,7 @@
 import linkBio.constants as const
+from linkBio.model.Featured import Featured
 from .TwitchAPI import TwitchAPI
 from .SupabaseAPI import SupabaseAPI
-from linkBio.model.Featured import Featured
 
 TwitchAPI = TwitchAPI()
 SUPABASE_API = SupabaseAPI()
