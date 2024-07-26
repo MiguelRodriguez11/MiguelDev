@@ -5,7 +5,7 @@ from linkBio.components.link_button import link_button
 from linkBio.components.title import title
 from linkBio.styles.styles import Color, Spacing
 
-def index_links() -> rx.Component:
+def index_links(featured=[]) -> rx.Component:
     return rx.vstack(
         title("Contacto"),
         link_button(
@@ -14,7 +14,8 @@ def index_links() -> rx.Component:
             "/icons/linkedin.svg",
             const.LINKEDIN_URL,
             False,
-            Color.SECONDARY.value
+            Color.SECONDARY.value,
+            True
         ),
         link_button(
             "GitHub",
@@ -34,6 +35,29 @@ def index_links() -> rx.Component:
             "/icons/spotify.svg",
             const.SPOTIFY_URL
         ),
+#        rx.cond(
+#            len(featured) > 0,
+#            rx.vstack(
+#                title("Destacado"),
+#                rx.foreach(
+#                    featured,
+#                    lambda item: rx.responsive_grid(
+#                        rx.link(
+#                            rx.image(
+#                            href=item["iamge"],
+#
+#                            ),
+#                            rx.text(
+#                            href=item["title"],
+#
+#                            ),
+#                            href=item["url"],
+#                            is_external=True
+#                        )
+#                    )
+#                )
+#           )
+#        ),
         title("Projectos"),
         link_button(
             "Free VPN service",

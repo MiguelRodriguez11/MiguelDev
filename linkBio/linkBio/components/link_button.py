@@ -23,6 +23,7 @@ def link_button(title: str,
                         title,
                         size=Spacing.SMALL.value,
                         style=styles.button_title_style
+
                     ),
                     rx.text(
                         body,
