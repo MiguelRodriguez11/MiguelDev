@@ -6,7 +6,7 @@ from linkBio.styles.styles import Size, Spacing
 from linkBio.styles.colors import TextColor as TextColor
 from linkBio.styles.colors import Color as Color
 
-def header(details = True) -> rx.Component:
+def header(details=True) -> rx.Component:
         return rx.vstack(
                 rx.hstack(
                         rx.box(

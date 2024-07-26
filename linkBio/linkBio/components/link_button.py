@@ -1,11 +1,17 @@
 import reflex as rx
 import linkBio.styles.styles as styles
-from linkBio.styles.styles import Size as Size
+from linkBio.styles.styles import Size, Spacing
 
-def link_button(title: str, body: str, image: str, url: str, is_external = True) -> rx.Component:
-    return rx.link(
-        rx.button(
-            rx.hstack(
+def link_button(title: str,
+                body: str,
+                image: str,
+                url: str,
+                is_external = True,
+                highlight_color=None,
+                animated=False) -> rx.Component:
+
+    return rx.button(
+        rx.hstack(
                 rx.image(
                     src=image,
                     width=Size.LARGE.value,
@@ -13,17 +19,26 @@ def link_button(title: str, body: str, image: str, url: str, is_external = True)
                     margin=Size.MEDIUM.value
                 ),
                 rx.vstack(
-                    rx.text(title, style=styles.button_title_style),
-                    rx.text(body, style=styles.button_body_style),
+                    rx.text(
+                        title,
+                        size=Spacing.SMALL.value,
+                        style=styles.button_title_style
+
+                    ),
+                    rx.text(
+                        body,
+                        size=Spacing.VERY_SMALL.value,
+                        style=styles.button_body_style
+                    ),
                     align_items="start",
-                    spacing=Size.ZERO.value,
-                    margin=Size.ZERO.value
-                )
-            ),
-            align="center",
-            width="100%",
+                    spacing=Spacing.VERY_SMALL.value,
+                    padding_y=Size.SMALL.value,
+                    padding_right=Size.SMALL.value
+                ),
+                align="center",
+                width="100%"
         ),
-        href=url,
-        is_external=is_external,
-        width="100%"
+        border=f"{'2px' if highlight_color != None else '0px'} solid {highlight_color}",
+        class_name=styles.BOUNCEIN_ANIMATION if animated else None,
+        on_click=rx.redirect(path=url, external=is_external)
     )

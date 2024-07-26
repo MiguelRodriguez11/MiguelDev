@@ -5,12 +5,16 @@ from .fonts import Font, FontWeight
 
 #Constants
 MAX_WIDTH = "560px"
+FADEIN_ANIMATION = "animate__animated animate__fadeIn"
+BOUNCEIN_ANIMATION = "animate__animated animate__bounceIn"
 
 #Sizes
 
 STYLESHEETS = [
     "https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap",
-    "https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&display=swap"
+    "https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&display=swap",
+    "https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css",
+    "/css/styles.css"
 ]
 
 class Size(Enum):
@@ -80,13 +84,11 @@ title_style = dict(
 button_title_style = dict(
     font_family=Font.TITLE.value,
     font_weight=FontWeight.MEDIUM.value,
-    font_size=Size.DEFAULT.value,
     Color=TextColor.HEADER.value
 )
 
 button_body_style = dict(
     font_family=Font.DEFAULT.value,
     font_weight=FontWeight.LIGHT.value,
-    font_size=Size.MEDIUM.value,
     Color=TextColor.BODY.value
 )

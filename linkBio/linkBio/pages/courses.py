@@ -19,7 +19,7 @@ def courses() -> rx.Component:
         navbar(),
         rx.center(
             rx.vstack(
-                header(details=False),
+                header(),
                 courses_links(),
                 max_width=styles.MAX_WIDTH,
                 width="100%",
